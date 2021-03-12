@@ -36,6 +36,7 @@ async def help_(msg):
     content = ''
     for name in unprefixed:
         content += '`' + prefix + name + '` — ' + unprefixed[name].__doc__ + '\n'
+    content += '\nThis bot is open source (MIT License), contribute: <https://github.com/tteeoo/msb>'
     await msg.reply(content)
 
 table = {prefix+'help': help_}
