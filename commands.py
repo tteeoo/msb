@@ -22,8 +22,11 @@ async def on(msg):
     """Prints how many players are on, and a sample of usernames (may not be all online players)"""
 
     if (j := server.list_ping(True)) != None:
-        await msg.reply('Players ('+str(j['players']['online'])+'/'+str(j["players"]["max"])+'): '+ \
-            ', '.join([p['name'] for p in j['players']['sample']]))
+        if j['players']['online'] == 0:
+            await msg.reply('Players: (0/'+str(j["players"]["max"])+')')
+        else:
+            await msg.reply('Players ('+str(j['players']['online'])+'/'+str(j["players"]["max"])+'): '+ \
+                ', '.join([p['name'] for p in j['players']['sample']]))
     else:
         await msg.reply(':no_entry: The server is down.')
 
