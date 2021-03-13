@@ -9,6 +9,8 @@ It can ping a Minecraft server at intervals and note its uptime in a specified c
 * `!up` — Checks if the Minecraft server is up.
 * `!on` — Prints how many players are on, and a sample of usernames (may not be all online players).
 * `!ping` — Pings the bot (not the Minecraft server).
+* `!server` — Prints information about the server being monitored.
+* `!mods` — Prints information about the mods on the server.
 
 The prefix (default is exclamation point) can be changed.
 
