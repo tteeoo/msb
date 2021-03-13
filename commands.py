@@ -1,8 +1,9 @@
 # Defines bot commands.
 
+import os
 import server
 
-prefix = '!'
+prefix = os.environ['MSB_PREFIX']
 
 async def ping(msg):
     """Pings the bot (not the Minecraft server)"""
