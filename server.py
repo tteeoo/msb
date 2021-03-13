@@ -1,7 +1,7 @@
-# For interactions with the minecraft server.
+"""For interactions with the minecraft server"""
 
 import os
-from json import loads, dumps
+from json import loads
 from socket import AF_INET, socket, SOCK_STREAM
 
 BUFSIZ = 1024
@@ -19,8 +19,7 @@ def deserialize(resp):
             pass
 
 # Should work for 1.7+ (TODO: older versions)
-# Pass a bool to return json
-def list_ping(return_json):
+def list_ping():
     pinger = socket(AF_INET, SOCK_STREAM)
     try:
         pinger.connect((host, port))
@@ -29,10 +28,8 @@ def list_ping(return_json):
         pinger.send(make([0]))
         j = deserialize(pinger.recv(BUFSIZ))
         pinger.close()
-        if return_json: return j
-        return True
+        return j
     except Exception as e:
         pinger.close()
         print('server down:', e)
-        if return_json: return None
-        return False
+        return None
