@@ -14,6 +14,8 @@ The prefix (default is exclamation point) can be changed.
 
 ## Running
 
+This bot runs with Python versions >= 3.8.
+
 Clone this repository and install the requirements:
 ```sh
 $ git clone https://github.com/tteeoo/msb
