@@ -25,9 +25,13 @@ async def command_on(msg):
         if j['players']['online'] == 0:
             await msg.reply('Players: (0/'+str(j['players']['max'])+')')
         else:
-            await msg.reply('Players ('+str(j['players']['online'])+
-                '/'+str(j['players']['max'])+'): '+
-                ', '.join([p['name'] for p in j['players']['sample']]))
+            if 'sample' in j['players']:
+                await msg.reply('Players ('+str(j['players']['online'])+
+                    '/'+str(j['players']['max'])+'): '+
+                    ', '.join([p['name'] for p in j['players']['sample']]))
+            else:
+                await msg.reply('Players ('+str(j['players']['online'])+
+                    '/'+str(j['players']['max'])+')')
     else:
         await msg.reply(':no_entry: The server is down.')
 
